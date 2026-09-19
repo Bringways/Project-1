@@ -1,0 +1,17 @@
+# Keep the Docker build context small and avoid copying host-machine
+# artifacts (like your local target/ folder or IDE files) into the image.
+# Without this, `docker build` sends everything in this directory to the
+# Docker daemon before build even starts - that includes stale local
+# builds, git history, and IDE metadata that have no business being there.
+
+target/
+.git/
+.gitignore
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log
+README.md
+Dockerfile
+.dockerignore
